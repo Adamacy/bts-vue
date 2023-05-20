@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300&display=swap');
+body {
+    margin: 0;
+    background-color: #1D1B1B;
+    overflow: hidden;
+    font-family: 'Hanken Grotesk', sans-serif;
+    color: white;
+}
+
+#toHide {
+    opacity: 0;
+    user-select: none;
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 50%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 0.6fr 2.4fr 0.5fr;
+    grid-template-rows: 3fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". main playlist";
+}
+
+.playlist {
+    grid-area: playlist;
+    border-left: 2px solid #D109D6;
+    color: white;
+    overflow-y: scroll;
+    height: 100vh;
+}
+.song{
+    display: grid;
+    grid-template-columns: 1fr 98fr 0.05fr;
+    grid-template-rows: 1fr;
+    gap: 0px 15px;
+    padding: 5px 10px;
+}
+.main {
+    margin-top: 15%;
+    height: 90vh;
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(6, 0.05fr) 0.01fr 0.01fr 0.05fr;
+    gap: 20px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". guess1 ."
+        ". guess2 ."
+        ". guess3 ."
+        ". guess4 ."
+        ". guess5 ."
+        ". guess6 ."
+        ". togglePlay ."
+        ". try ."
+        ". sip .";
+}
+
+.guess1 {
+    grid-area: guess1;
+}
+.guess2 {
+    grid-area: guess2;
+}
+
+.guess3 {
+    grid-area: guess3;
+}
+
+.guess4 {
+    grid-area: guess4;
+}
+
+.guess5 {
+    grid-area: guess5;
+}
+
+.guess6 {
+    grid-area: guess6;
+}
+.guess1,
+.guess2,
+.guess3,
+.guess4,
+.guess5,
+.guess6 {
+    font-size: larger;
+    height: 30px;
+    border: 2px solid #D109D6;
+    border-radius: 10px;
+    background: none;
+    text-align: center;
+    padding: 5px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sip {
+    grid-area: sip;
+}
+.submit{
+    display: flex;
+    float: right;
+    background: none;
+    border: 2px solid #0cbd6e;
+    color: white;
+    text-align: center;
+    padding: 10% 10% 10% 10%;
+    cursor: pointer;
+    font-size: 30px;
+    transition: 0.4s;
+}
+.submit:hover{
+    transition: 0.4s;
+    background-color: #0cbd6e;
+    border-radius: 15px;
+
+}
+.skip{
+    transition: 0.4s;
+    font-size: 25px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid #2aadc4;
+    padding: 6%;
+    font-weight: 700;
+}
+.skip:hover{
+    transition: 0.4s;
+    background-color: #2aadc4;
+    border-radius: 15px;
+}
+.togglePlay {
+    grid-area: togglePlay;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: 0;
+}
+
+/* div with input  */
+.try { 
+    grid-area: try;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: 0;
+}
+/* input  */
+#try{
+    border-radius: 10px;
+    padding-left:10px;
+    width: 150%;
+    height: 3vh;
+    font-size: x-large;
+}
+#try:focus{
+    outline: none;
+    
+}
+
+
+@media only screen and (max-width: 1280px) {
+    .container{
+        grid-template-columns: 0.5fr 2.1fr 0.9fr;
+    }
+    .main {
+        grid-template-rows: repeat(6, 0.06fr) 0.01fr 0.01fr;
+    }
+    #try{
+        font-size: medium;
+    }
+    .submit{
+        padding: 6%;
+        font-size: x-large;
+    }
+    .skip{
+        font-size: medium;
+        padding: 2%;
+    }
+}
+@media only screen and (max-width: 390px){
+    .container{
+        grid-template-columns: 0fr 2fr 3fr;
+        grid-template-areas: 
+        "main . playlist";
+    }
+    .main{
+        margin-top: 100px;
+        padding-left: 100px;
+    }
+}
