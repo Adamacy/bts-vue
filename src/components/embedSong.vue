@@ -34,6 +34,7 @@
             </div>
         </div>
     </div>
+    
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
@@ -103,7 +104,7 @@ export default defineComponent({
             if (this.guess == this.song.track) {
                 this.displayIframe()
             }
-            if (this.guess != "" && !this.guessed.includes(this.guess)) {
+            if (this.guess != "" && !this.guessed.includes(this.guess) && this.songs.find(({ track }) => track == this.guess)) {
                 this.numberOfGuesses++;
                 this.timeToPlay[this.numberOfGuesses];
                 if (this.numberOfGuesses == 6) {
@@ -159,10 +160,10 @@ export default defineComponent({
         document.head.appendChild(recaptchaScript);
         setTimeout(() => {
             (document.querySelector(".togglePlay") as HTMLButtonElement).click()
-        }, 1000);
+        }, 2000);
         setTimeout(() => {
             (document.querySelector(".togglePlay") as HTMLButtonElement).click()
-        }, 400);
+        }, 1000);
         
 
     },
